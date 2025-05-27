@@ -1,0 +1,62 @@
+###############################################################################
+# Main Makefile
+###############################################################################
+
+# Detect platform and choose size command
+ifeq ($(shell uname -s),Darwin)
+	ifeq ($(shell command -v gsize 2>/dev/null),)
+		SIZE := size - m
+		FLAGSIZEOBJ :=
+	else
+    	SIZE := gsize -B -d
+		FLAGSIZEOBJ := -t
+	endif
+else
+	SIZE := size -B -d
+	FLAGSIZEOBJ := -t
+endif
+
+# Find all the C++ files want to compile
+SRCS    := $(shell find $(SRCDIR) -name '*.cpp')
+
+# String substitution for every C++ files
+OBJS    := $(addprefix $(OBJDIR)/,$(patsubst %.cpp,%.o,$(notdir $(SRCS))))
+
+# Add a prefix to INCDIR
+INC_FLAGS   := $(addprefix -I,$(INCDIR))
+
+# Program for compiling C++ programs; default ‘cxx’
+CXX	= g++
+# Extra flags to give to the C++ compiler
+CXXFLAGS	= -Wall -g -std=c++11
+# Extra flags to give to the C preprocessor
+CPPFLAGS    := $(INC_FLAGS)
+
+# Default target
+all: $(PRJDIR)/$(BINARY)
+
+# Link target
+$(PRJDIR)/$(BINARY): $(OBJS)
+	$(CXX) $(LDFLAGS) $(OBJDIR)/*.o -o $@
+	@echo "Binary size:"
+	@$(SIZE) $@
+
+# Build C++ sources
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+
+.PHONY: all clean clobber sizeobj
+
+# Size of object files
+sizeobj:
+	@echo "Object file sizes:"
+	@cd $(OBJDIR)/ && $(SIZE) $(FLAGSIZEOBJ) *.o
+
+# Clean object files
+clean:
+	-rm -f $(OBJDIR)/*.o
+
+# Clean everything
+clobber: clean
+	-rm -f $(PRJDIR)/$(BINARY)
