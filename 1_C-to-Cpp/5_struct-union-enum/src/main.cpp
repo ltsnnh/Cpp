@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-#include "common.h"
 
 // declare ~ typedef struct nameOfStruct in C
 // also apply in union, enum

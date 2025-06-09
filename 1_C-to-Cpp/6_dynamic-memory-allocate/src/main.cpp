@@ -1,6 +1,5 @@
 #include <iostream>
 #include <new>
-#include "common.h"
 
 void check_function_new(void)
 {
