@@ -1,10 +1,5 @@
 #include <iostream>
 
-void func1(void);
-void func2(void);
-void func3(void);
-void func4(void);
-
 // declare and define function at the same time
 void delay(int n = 1000)
 {
