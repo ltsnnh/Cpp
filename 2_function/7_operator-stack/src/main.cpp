@@ -12,6 +12,9 @@ fraction operator-(fraction a, fraction b);
 fraction operator*(fraction a, fraction b);
 fraction operator/(fraction a, fraction b);
 
+std::ostream& operator<<(std::ostream& os, fraction p);
+std::istream& operator<<(std::istream& is, fraction &p);
+
 int main(void)
 {
     fraction a = {1, 2};
@@ -26,10 +29,10 @@ int main(void)
     // still follow the order of priority
     fraction d2 = a + b * b;
 
-    std::cout << "c1 = " << c1.numerator << '\\' << c1.denominator << std::endl;
-    std::cout << "c2 = " << c2.numerator << '\\' << c2.denominator << std::endl;
-    std::cout << "d1 = " << d1.numerator << '\\' << d1.denominator << std::endl;
-    std::cout << "d2 = " << d2.numerator << '\\' << d2.denominator << std::endl;
+    std::cout << "c1 = " << c1.numerator << '/' << c1.denominator << std::endl;
+    std::cout << "c2 = " << c2.numerator << '/' << c2.denominator << std::endl;
+    std::cout << "d1 = " << d1 << std::endl;
+    std::cout << "d2 = " << d2 << std::endl;
 
     return 0;
 }
@@ -72,4 +75,20 @@ fraction operator/(fraction a, fraction b)
     result.denominator = a.denominator*b.numerator;
 
     return result;
+}
+
+std::ostream& operator<<(std::ostream& os, fraction p)
+{
+    os << p.numerator << '/' << p.denominator;
+
+    return os;
+}
+
+std::istream& operator<<(std::istream& is, fraction &p)
+{
+    std::cout << "Enter the numerator and the denominator";
+    is >> p.numerator >> p.denominator;
+    std::cin.ignore(1);
+
+    return is;
 }
