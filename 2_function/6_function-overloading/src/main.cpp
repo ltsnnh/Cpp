@@ -1,5 +1,10 @@
 #include <iostream>
 
+// static polymorphism
+// also known as compile-time polymorphism
+// is a type of polymorphism that resolves the types and method calls at compile time rather than at runtime
+// this is commonly achieved through the use of function overloading and templates
+
 // function overloading
 // when compiling, it will be based on the differences between the type of arguments
 int sumCalculate(int a, int b);

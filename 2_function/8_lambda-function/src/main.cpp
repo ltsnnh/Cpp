@@ -5,10 +5,10 @@
     // function body
 };
 
-capture-list: A list of variables from the surrounding scope that the lambda function can access.
-parameters: The list of input parameters, just like in a regular function. Optional.
-return_type: The type of the value that the lambda function will return. This part is optional, and the compiler can deduce it in many cases.
-function body: The code that defines the operation of the lambda function.
+capture-list: a list of variables from the surrounding scope that the lambda function can access
+parameters: the list of input parameters, just like in a regular function. Optional
+return_type: the type of the value that the lambda function will return. This part is optional, and the compiler can deduce it in many cases
+function body: the code that defines the operation of the lambda function
 */
 
 int main(void)
