@@ -3,15 +3,15 @@
 /*
 class name
 {
-    // peroperties
+    // attributes
     // methods
 };
 // method definitions
 */
 
-// peroperties: 'name *A;' is approved, 'name A;' is not
+// attributes: 'name *A;' is approved, 'name A;' is not
 // keyword private and public in definitions, default is private if keyword is missing
-//      private: used only inside the class, generally used for peroperties
+//      private: used only inside the class, generally used for attributes
 //      public: use both inside and outside the class, generally used for methods
 
 /*
@@ -55,7 +55,7 @@ int main(void)
 {
     pixel p1, p2;
 
-    std::cout << "sizeof(class pixel) = sizeof(pixel::peroperties) = 3 * sizeof(int) = " << sizeof(pixel) << std::endl;
+    std::cout << "sizeof(class pixel) = sizeof(pixel::attributes) = 3 * sizeof(int) = " << sizeof(pixel) << std::endl;
     std::cout << "sizeof(p1) = " << sizeof(p1) << std::endl;
     std::cout << "sizeof(p2) = " << sizeof(p2) << std::endl;
 
