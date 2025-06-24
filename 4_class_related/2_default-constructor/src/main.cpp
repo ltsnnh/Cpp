@@ -35,10 +35,10 @@ int main(void)
 {
     // the program will allocate memory for the object first, then call the constructor
     // call to no argument constructor
-    polynomial();
+    polynomial a;
 
     // call to argument constructor
-    polynomial(3);
+    polynomial b(3);
 
     return 0;
 }
