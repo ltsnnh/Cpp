@@ -8,40 +8,37 @@
 
 // should build both constructor with arguments and constructor without arguments
 
-class pixel
+// using constructors to create complete objects is convenient
+// because it avoids extra operations (like memory allocation, .etc)
+
+class polynomial
 {
     private:
-    int x, y, colour;
+    int degree;
+    float *coefficient;
     public:
     // constructor without arguments
-    pixel(void) {
-        x = y = 0;
-        colour = 1;
+    polynomial(void) {
+        this->degree = 1;
+        this->coefficient = NULL;
     }
     // constructor with arguments
-    pixel(int x1, int y1, int colour1 = 1);
-
-    int testSum(void) {
-        return (x * y + colour);
-    }
+    polynomial(int d);
 };
 
-pixel::pixel(int x1, int y1, int colour1) {
-    x = x1;
-    y = y1;
-    colour = colour1;
+polynomial::polynomial(int d) {
+    this->degree = d;
+    this->coefficient = new float[d + 1];
 }
 
 int main(void)
 {
     // the program will allocate memory for the object first, then call the constructor
     // call to no argument constructor
-    pixel a;
-    std::cout << a.testSum() << std::endl;
+    polynomial();
 
     // call to argument constructor
-    pixel b(2, 3, 18);
-    std::cout << b.testSum() << std::endl;
+    polynomial(3);
 
     return 0;
 }
