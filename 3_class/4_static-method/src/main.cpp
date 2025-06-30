@@ -1,6 +1,8 @@
 #include <iostream>
 #include <math.h>
 
+// static method is generally used to access static attribute
+
 class vertex
 {
     private:
