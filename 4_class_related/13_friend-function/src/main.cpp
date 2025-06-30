@@ -1,5 +1,8 @@
 #include <iostream>
 
+// friend function
+// differs from a normal function in that it can access class attributes
+
 class polynomial
 {
     private:
@@ -37,6 +40,7 @@ class polynomial
             std::cin >> this->coefficient[i];
             std::cin.ignore(1);
         }
+        return;
     }
 
     void printPolynomial(void) {
@@ -66,25 +70,46 @@ class polynomial
                 }
             }
         }
+        return;
+    }
 
+    // friend function prototype
+    friend void printfDegree(polynomial arg);
+    // friend function declare and definition
+    friend void printfCoefficient(polynomial arg) {
+        if (NULL == arg.coefficient) {
+            std::cout << "NULL!" << std::endl;
+        }
+        else {
+            std::cout << "[ ";
+            for (int i = 0; i <= arg.degree; i++) {
+                std::cout << arg.coefficient[i];
+                if (i == arg.degree) {
+                    std::cout << " ]" << std::endl;
+                }
+                else {
+                    std::cout << ", ";
+                }
+            }
+        }
     }
 };
 
+// friend function definition
+void printfDegree(polynomial arg) {
+    std::cout << "Degree = " << arg.degree << std::endl;
+    return;
+}
+
 int main(void)
 {
-    // declare array of objects
-    // call to the non-argument constructor to declare elements of array
-    polynomial y[5];
+    polynomial x(3);
+    // use friend function
+    printfDegree(x);
 
-    // declare and define array of objects
-    // call to the argument constructor to initialize elements of array
-    polynomial z[3] = {polynomial(3), polynomial(4), polynomial(2)};
-
-    for (int i = 0; i < 3; i++) {
-        z[i].enterPolynomial();
-        std::cout << "z" << i << " = ";
-        z[i].printPolynomial();
-    }
+    x.enterPolynomial();
+    // use friend function
+    printfCoefficient(x);
 
     return 0;
 }

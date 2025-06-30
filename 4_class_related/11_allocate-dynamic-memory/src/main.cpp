@@ -1,12 +1,5 @@
 #include <iostream>
 
-// the destruction of an object occurs in the following two cases:
-// free up memory: delete, free, .etc
-// free local variables, arrays when exiting functions, methods
-
-// if a destructor is not defined in a class
-// a default destructor that does nothing is generated
-
 class polynomial
 {
     private:
@@ -32,7 +25,6 @@ class polynomial
         }
     }
 
-    // destructor
     ~polynomial(void) {
         this->degree = 0;
         delete this->coefficient;
