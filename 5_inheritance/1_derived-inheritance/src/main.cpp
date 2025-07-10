@@ -38,7 +38,7 @@ class circle : private point {
 
     // METHOD INHERITANCE
     // all methods of base classes are inherited in derived class
-    // except constructor, destructor, assignment operator.
+    // except constructor, destructor, assignment operator
     public:
     circle(void) {
         this->r = 0;
@@ -57,7 +57,7 @@ class circle : private point {
 };
 
 int main(void) {
-    circle cir(2.2, 1, 2.34);
+    circle cir(2.2F, 1U, 2.34F);
     cir.printfR();
 
     return 0;

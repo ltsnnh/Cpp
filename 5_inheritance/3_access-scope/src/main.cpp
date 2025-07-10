@@ -1,12 +1,15 @@
 #include <iostream>
 
-// derived classes do not inherit constructors and destructors, assignment operators of base classes
-
 // BASE CLASS
 class point {
     private:
     float x;
     float y;
+
+
+    // protected attributes
+    // access scope can only be extended to classes directly derived from this class
+    protected:
     char *pointName;
 
     public:
@@ -29,27 +32,23 @@ class point {
 
     void printfPoint(void) {
         std::cout << "x = " << this->x << ", y = " << this->y << std::endl;
-        std::cout << "Name of point: " << this->pointName << std::endl;
         return;
     }
 };
 
 // DERIVED CLASS
+// public base class: all public and protected components of base class are also public and protected components of derived class
+// private base class: all public and protected components of base class are also private components of derived class
 class circle : private point {
     private:
     float r;
     char *circleName;
 
     public:
-    // CONSTRUCTOR
     circle(void) {
         this->r = 0;
     }
 
-    // CONSTRUCTOR
-    // initialize the new attributes of derived class
-    // for attributes of base classes, use their constructors
-    // for attributes of component objects, use their constructor
     circle(float a, float x, float y) : point(x, y) {
         this->r = a;
         this->circleName = new char[22];
@@ -58,15 +57,14 @@ class circle : private point {
         std::cin.ignore(1);
     }
 
-    // DESTRUCTOR
-    // when a derived class object is freed, the component objects and dereived object of base class are also freed
-    // only care about attributes, not component objects
     ~circle(void) {
         delete this->circleName;
     }
 
     void printfR(void) {
         this->printfPoint();
+        // use base class components in derived class
+        std::cout << "Name of point: " << this->pointName << std::endl;
         std::cout << "r = " << r << std::endl;
         std::cout << "Name of circle: " << this->circleName << std::endl;
         return;
