@@ -2,15 +2,13 @@
 
 // reference variable is used as argument of function
 // to save memory and reduce processing time by not having to create new variables
-void sumCalculate(const float &ra, const float &rb, float &rc)
-{
+void sumCalculate(const float &ra, const float &rb, float &rc) {
     rc = ra + rb;
 
     return;
 }
 
-int main(void)
-{
+int main(void) {
     float c = 0;
     sumCalculate(1, 2, c);
 

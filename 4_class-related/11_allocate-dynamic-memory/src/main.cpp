@@ -1,7 +1,6 @@
 #include <iostream>
 
-class polynomial
-{
+class polynomial {
     private:
     int degree;
     float *coefficient;
@@ -9,7 +8,7 @@ class polynomial
     public:
     polynomial(void) {
         this->degree = 0;
-        this->coefficient = NULL;
+        this->coefficient = new float;
     }
 
     polynomial(int d) {
@@ -70,21 +69,15 @@ class polynomial
     }
 };
 
-int main(void)
-{
-    // declare array of objects
-    // call to the non-argument constructor to declare elements of array
-    polynomial y[5];
+int main(void) {
+    // declare a pointer
+    polynomial *ptr;
 
-    // declare and define array of objects
-    // call to the argument constructor to initialize elements of array
-    polynomial z[3] = {polynomial(3), polynomial(4), polynomial(2)};
+    ptr = new polynomial(3);
 
-    for (int i = 0; i < 3; i++) {
-        z[i].enterPolynomial();
-        std::cout << "z" << i << " = ";
-        z[i].printPolynomial();
-    }
+    ptr->enterPolynomial();
+    std::cout << "ptr = ";
+    ptr->printPolynomial();
 
     return 0;
 }

@@ -4,11 +4,10 @@ void func1(void);
 void func2(void);
 void func3(void);
 void func4(void);
+void funcError(void);
 
-void (&keymap(const int &rkey))(void)
-{
-    switch (rkey)
-    {
+void (&keymap(const int &rkey))(void) {
+    switch (rkey) {
         case 1:
         return func1;
         break;
@@ -21,39 +20,48 @@ void (&keymap(const int &rkey))(void)
         case 4:
         return func4;
         break;
+
+        default:
+        return funcError;
+        break;
     }
+
+    return funcError;
 }
 
-int main(void)
-{
+int main(void) {
     int key;
     std::cout << "Enter a number 1 - 4: ";
     std::cin >> key;
     std::cin.ignore(1);
 
+    // function returns a reference variable
     void(&rFuncPtr)(void) = keymap(key);
     rFuncPtr();
 
     return 0;
 }
 
-void func1(void)
-{
+void func1(void) {
     std::cout << "1.\n";
     return;
 }
-void func2(void)
-{
+
+void func2(void) {
     std::cout << "2.\n";
     return;
 }
-void func3(void)
-{
+
+void func3(void) {
     std::cout << "3.\n";
     return;
 }
-void func4(void)
-{
+
+void func4(void) {
     std::cout << "4.\n";
     return;
+}
+
+void funcError(void) {
+    std::cout << "Keymap error.\n";
 }

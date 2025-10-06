@@ -3,8 +3,7 @@
 // friend function
 // differs from a normal function in that it can access class attributes
 
-class polynomial
-{
+class polynomial {
     private:
     int degree;
     float *coefficient;
@@ -12,7 +11,7 @@ class polynomial
     public:
     polynomial(void) {
         this->degree = 0;
-        this->coefficient = NULL;
+        this->coefficient = new float;
     }
 
     polynomial(int d) {
@@ -101,8 +100,7 @@ void printfDegree(polynomial arg) {
     return;
 }
 
-int main(void)
-{
+int main(void) {
     polynomial x(3);
     // use friend function
     printfDegree(x);

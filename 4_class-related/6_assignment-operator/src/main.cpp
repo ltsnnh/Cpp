@@ -10,8 +10,7 @@
 // copy constructor
 // assignment operator
 
-class polynomial
-{
+class polynomial {
     private:
     int degree;
     float *coefficient;
@@ -19,7 +18,7 @@ class polynomial
     public:
     polynomial(void) {
         this->degree = 0;
-        this->coefficient = NULL;
+        this->coefficient = new float;
     }
 
     polynomial(int d) {
@@ -90,8 +89,7 @@ class polynomial
     }
 };
 
-int main(void)
-{
+int main(void) {
     // not every statement containing the '=' sign calls the assignment operator
 
     // call to constructor with arguments

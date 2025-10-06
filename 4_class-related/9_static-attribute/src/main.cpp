@@ -6,8 +6,9 @@
 
 class A {
     private:
+    int temp;
     // declare static attribute
-    static int temp;
+    static int sum;
     // here it does not exist, no memory has been allocated
 
     public:
@@ -15,25 +16,25 @@ class A {
         this->temp = x1;
     }
 
-    void printfTemp(void) {
-        std::cout << "temp = " << this->temp << std::endl;
+    void printfSum(void) {
+        this->sum+= temp;
+        std::cout << "temp = " << this->sum<< std::endl;
         return;
     }
 };
 
 // define static attribute
-int A::temp = 123;
+int A::sum = 123;
 // here it has been allocated memory and initialized value
 // NOTE: if not define static attribute will not exist
 // the build process will report an error at the linker step: symbol not found
 
-int main(void)
-{
+int main(void) {
     A x(3);
-    x.printfTemp();
+    x.printfSum();
 
     A y(5);
-    y.printfTemp();
+    y.printfSum();
 
     return 0;
 }

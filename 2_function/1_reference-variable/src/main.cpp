@@ -1,7 +1,6 @@
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
     int a = 10;
     // initial reference variable refering to a specific variable
     // reference variable is only a alias, not be allocate memory
@@ -15,7 +14,7 @@ int main(void)
     const int &cra = a;
     std::cout << "cra = " << cra << '\n';
     // const reference variable does not allow changing the value of the memory it references
-    // cra += 1;
+    // cra += 1; // error
 
     return 0;
 }

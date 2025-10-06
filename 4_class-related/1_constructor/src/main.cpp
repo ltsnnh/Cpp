@@ -1,20 +1,20 @@
 #include <iostream>
 
-class pixel
-{
+class pixel {
     private:
     int x, y, colour;
     public:
     // constructor
-    // is also a method, with the same name as the class name
-    // used to create a new object
+    // a method with the same name as the class name, used to create a new object
     // the program will allocate memory for the object, then call the constructor to initialize value of attributes
     // the constructor name is the same class name, no type declared and no return value
+
     // constructor 1
     pixel(void) {
         x = y = 0;
         colour = 1;
     }
+
     // constructor 2
     pixel(int x1, int y1, int colour1 = 1);
 
@@ -29,8 +29,7 @@ pixel::pixel(int x1, int y1, int colour1) {
     colour = colour1;
 }
 
-int main(void)
-{
+int main(void) {
     // use constructor in declaration
     // call to no argument constructor
     pixel a;
@@ -40,7 +39,7 @@ int main(void)
     pixel b(2, 3, 18);
     std::cout << b.testSum() << std::endl;
 
-    // call to have argument constructor
+    // call to argument constructor
     pixel c(3, 4);
     std::cout << c.testSum() << std::endl;
 
@@ -58,6 +57,7 @@ int main(void)
     std::cout << q->testSum() << std::endl;
 
     // use constructors to represent constant objects
+    // can use them to implement a method
     // no argument constructor
     std::cout << pixel().testSum() << std::endl;
     // argument constructor

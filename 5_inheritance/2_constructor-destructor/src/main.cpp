@@ -59,7 +59,7 @@ class circle : private point {
     }
 
     // DESTRUCTOR
-    // when a derived class object is freed, the component objects and dereived object of base class are also freed
+    // when a derived class object is freed, the component objects and inheritanced objects of base class are also freed
     // only care about attributes, not component objects
     ~circle(void) {
         delete this->circleName;

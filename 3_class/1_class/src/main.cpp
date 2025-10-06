@@ -1,8 +1,7 @@
 #include <iostream>
 
 /*
-class name
-{
+class name {
     // attributes
     // methods
 };
@@ -21,26 +20,24 @@ name object1, object2;
 // each object after declaration will be allocated its own memory area to store its properties
 // methods will be shared by all objects of the same class
 
-class pixel
-{
+class pixel {
     private:
     int x, y, colour;
     public:
     void pixelEnter(void);
-    void pixelDisplay(void)
-    {
-        // putpixel(x, y, m);
+    void pixelDisplay(void) {
+        std::cout << "Pixel: [" << x << ',' << y << "], colour --" << colour << std::endl;
+
         return;
     }
-    void pixelHide(void)
-    {
-        // hidepixel(x, y, m);
+    void pixelHide(void) {
+        std::cout << "Pixel have been hidden" << std::endl;
+
         return;
     }
 };
 
-void pixel::pixelEnter(void)
-{
+void pixel::pixelEnter(void) {
     std::cout << "Enter x, y: ";
     std::cin >> x >> y;
     std::cin.ignore(1);
@@ -51,8 +48,7 @@ void pixel::pixelEnter(void)
     return;
 }
 
-int main(void)
-{
+int main(void) {
     pixel p1, p2;
 
     std::cout << "sizeof(class pixel) = sizeof(pixel::attributes) = 3 * sizeof(int) = " << sizeof(pixel) << std::endl;

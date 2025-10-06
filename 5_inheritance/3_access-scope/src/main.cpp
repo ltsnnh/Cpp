@@ -6,7 +6,6 @@ class point {
     float x;
     float y;
 
-
     // protected attributes
     // access scope can only be extended to classes directly derived from this class
     protected:

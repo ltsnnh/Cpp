@@ -1,7 +1,6 @@
 #include <iostream>
 
-class polynomial
-{
+class polynomial {
     private:
     int degree;
     float *coefficient;
@@ -9,7 +8,7 @@ class polynomial
     public:
     polynomial(void) {
         this->degree = 0;
-        this->coefficient = NULL;
+        this->coefficient = new float;
     }
 
     polynomial(int d) {
@@ -80,8 +79,7 @@ void polynomial::printfDegree(void) const {
     return;
 }
 
-int main(void)
-{
+int main(void) {
     // when declaring, you need to use constructors to initialize values ​​for constant objects
     // the methods that can be used for constant objects are constructors, destructors, and const methods
     const polynomial x(3);

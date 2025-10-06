@@ -42,8 +42,7 @@ class C {
     friend class B;
 };
 
-int main(void)
-{
+int main(void) {
     A tempA;
     B tempB;
 

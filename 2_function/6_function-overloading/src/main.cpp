@@ -6,13 +6,14 @@
 // this is commonly achieved through the use of function overloading and templates
 
 // function overloading
-// when compiling, it will be based on the differences between the type of arguments
+// when compiling, it will be based on the differences between arguments (type or quantity)
 int sumCalculate(int a, int b);
 float sumCalculate(float a, float b);
 
-int main(void)
-{
-    // when function is called, it will be based on the differences between the type of parameter
+int main(void) {
+    // when function is called, it will be based on the differences between parameter sets
+    // when no function has an argument set of the same type as the parameter set
+    // the compiler will choose the function with the closest argument type
     // should use type casting in function calls
     int m = sumCalculate(1, 2);
     float n = sumCalculate(1.1F, 2.2F);
@@ -31,11 +32,9 @@ int main(void)
     return 0;
 }
 
-int sumCalculate(int a, int b)
-{
+int sumCalculate(int a, int b) {
     return (a+b);
 }
-float sumCalculate(float a, float b)
-{
+float sumCalculate(float a, float b) {
     return (a+b);
 }

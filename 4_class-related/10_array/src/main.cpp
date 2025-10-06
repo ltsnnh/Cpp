@@ -1,7 +1,6 @@
 #include <iostream>
 
-class polynomial
-{
+class polynomial {
     private:
     int degree;
     float *coefficient;
@@ -9,7 +8,7 @@ class polynomial
     public:
     polynomial(void) {
         this->degree = 0;
-        this->coefficient = NULL;
+        this->coefficient = new float;
     }
 
     polynomial(int d) {
@@ -70,8 +69,7 @@ class polynomial
     }
 };
 
-int main(void)
-{
+int main(void) {
     // declare array of objects
     // call to the non-argument constructor to declare elements of array
     polynomial y[5];

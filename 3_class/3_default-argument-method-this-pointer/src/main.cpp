@@ -1,19 +1,18 @@
 #include <iostream>
 
-class pixel
-{
+class pixel {
     private:
     int x, y, colour;
     public:
     void pixelEnter(void);
-    void pixelDisplay(void)
-    {
-        // putpixel(x, y, m);
+    void pixelDisplay(void) {
+        std::cout << "Pixel: [" << this->x << ',' << this->y << "], colour --" << this->colour << std::endl;
+
         return;
     }
-    void pixelHide(void)
-    {
-        // hidepixel(x, y, m);
+    void pixelHide(void) {
+        std::cout << "Pixel have been hidden" << std::endl;
+
         return;
     }
 };
@@ -21,8 +20,7 @@ class pixel
 // a method always has at least one argument, the this pointer
 // and it is the first argument of the method
 // the parameter passed to the this pointer is the address of the object associated with the method in the method call
-void pixel::pixelEnter(void)
-{
+void pixel::pixelEnter(void) {
     std::cout << "Enter x, y: ";
     std::cin >> this->x >> this->y;
     std::cin.ignore(1);
@@ -33,14 +31,14 @@ void pixel::pixelEnter(void)
     return;
 }
 
-int main(void)
-{
+int main(void) {
     pixel p1;
 
     // method call
     // this (argument) = &p1 (parameter)
     p1.pixelEnter();
-
+    p1.pixelDisplay();
+    p1.pixelHide();
 
     return 0;
 }

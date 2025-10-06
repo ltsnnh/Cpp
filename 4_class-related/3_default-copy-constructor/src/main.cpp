@@ -1,7 +1,6 @@
 #include <iostream>
 
-class polynomial
-{
+class polynomial {
     private:
     int degree;
     float *coefficient;
@@ -51,8 +50,7 @@ class polynomial
     }
 };
 
-int main(void)
-{
+int main(void) {
     polynomial y(3);
 
     y.enterPolynomial();

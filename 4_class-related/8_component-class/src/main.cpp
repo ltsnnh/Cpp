@@ -61,9 +61,7 @@ class C {
     // r is initialized with 3-argument constructor
 };
 
-int main(void)
-{
-
+int main(void) {
 
     return 0;
 }

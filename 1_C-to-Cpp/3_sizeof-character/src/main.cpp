@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-int main(void)
-{
+int main(void) {
     // in C, sizeof('A') = sizeof(int) = 4
+    // in C++, sizeof('A') = sizeof(char) = 1
     printf("sizeof('character') = sizeof(char) = %lu\n", sizeof('A'));
 
     return 0;

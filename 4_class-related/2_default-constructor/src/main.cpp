@@ -11,8 +11,7 @@
 // using constructors to create complete objects is convenient
 // because it avoids extra operations (like memory allocation, .etc)
 
-class polynomial
-{
+class polynomial {
     private:
     int degree;
     float *coefficient;
@@ -20,7 +19,7 @@ class polynomial
     // constructor without arguments
     polynomial(void) {
         this->degree = 1;
-        this->coefficient = NULL;
+        this->coefficient = new float;
     }
     // constructor with arguments
     polynomial(int d);
@@ -31,8 +30,7 @@ polynomial::polynomial(int d) {
     this->coefficient = new float[d + 1];
 }
 
-int main(void)
-{
+int main(void) {
     // the program will allocate memory for the object first, then call the constructor
     // call to no argument constructor
     polynomial a;

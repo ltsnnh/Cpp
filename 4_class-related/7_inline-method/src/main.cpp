@@ -7,8 +7,7 @@
 // inline is just a suggestion to the compiler, not a command
 // methods will generally not be inlined if they contain static variables, cyclic or branching statements, recursive functions, etc.
 
-class polynomial
-{
+class polynomial {
     private:
     int degree;
     float *coefficient;
@@ -17,7 +16,7 @@ class polynomial
     // inline
     polynomial(void) {
         this->degree = 0;
-        this->coefficient = NULL;
+        this->coefficient = new float;
     }
 
     // inline
@@ -93,8 +92,7 @@ inline void polynomial::enterPolynomial(void) {
     }
 }
 
-int main(void)
-{
+int main(void) {
     polynomial *y = new polynomial(3);
     y->enterPolynomial();
     std::cout << "y: ";

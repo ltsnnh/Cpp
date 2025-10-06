@@ -1,6 +1,13 @@
 #include <iostream>
 
 /*
+a lambda expression is an anonymous function that is defined in-place in the code, without needing a separate name
+when to use lambda?
+- when you need a short function that is not reused many times
+- when passing callbacks to STL functions (std::sort, std::for_each, std::find_if, …)
+- when writing multithreading (std::thread)
+- when handling events (GUI, signal-slot…)
+
 [capture-list](parameters) -> return_type {
     // function body
 };
@@ -11,13 +18,11 @@ return_type: the type of the value that the lambda function will return. This pa
 function body: the code that defines the operation of the lambda function
 */
 
-int main(void)
-{
+int main(void) {
     int multiplier = 3;
 
     // define lambda function
-    auto times = [multiplier](int a) -> int
-    {
+    auto times = [multiplier](int a) -> int {
         return a * multiplier;
     };
 

@@ -7,8 +7,7 @@
 // if a destructor is not defined in a class
 // a default destructor that does nothing is generated
 
-class polynomial
-{
+class polynomial {
     private:
     int degree;
     float *coefficient;
@@ -16,7 +15,7 @@ class polynomial
     public:
     polynomial(void) {
         this->degree = 0;
-        this->coefficient = NULL;
+        this->coefficient = new float;
     }
 
     polynomial(int d) {
@@ -78,8 +77,7 @@ class polynomial
     }
 };
 
-int main(void)
-{
+int main(void) {
     polynomial y(3);
 
     y.enterPolynomial();

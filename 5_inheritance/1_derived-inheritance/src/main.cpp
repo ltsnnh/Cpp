@@ -30,7 +30,7 @@ class point {
 class circle : private point {
     // ATTRIBUTE INHERITANCE
     // all attributes of base classes are inherited in derived class
-    // however in derived class, there are no access to attributes of base classes
+    // however in derived class, there are no access to private attributes of base classes
     private:
     float r;
 
@@ -44,7 +44,7 @@ class circle : private point {
         this->r = 0;
     }
 
-    // base class are often treated like an class component
+    // base class are often treated like class component
     circle(float a, float x, float y) : point(x, y) {
         this->r = a;
     }

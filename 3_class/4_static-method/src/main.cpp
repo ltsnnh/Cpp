@@ -2,15 +2,14 @@
 #include <math.h>
 
 // static method is generally used to access static attribute
+// it cannot access non-static attribute
 
-class vertex
-{
+class vertex {
     private:
     float x, y;
 
     public:
-    void vertexEnter(void)
-    {
+    void vertexEnter(void) {
         std::cout << "Enter x, y: ";
         std::cin >> x >> y;
         std::cin.ignore(1);
@@ -18,21 +17,18 @@ class vertex
         return;
     }
 
-    void vertexDisplay(void)
-    {
+    void vertexDisplay(void) {
         std::cout << "x = " << x << " y = " << y << std::endl;
 
         return;
     }
 
-    float vertexSide(vertex B)
-    {
+    float vertexSide(vertex B) {
         return sqrt(pow(this->x - B.x, 2) + pow(this->y - B.y, 2));
     }
 };
 
-class triangle
-{
+class triangle {
     private:
     vertex a, b, c;
 
@@ -40,8 +36,7 @@ class triangle
     // static method
     // no implicit argument this pointer
     // not associated with any particular object of the class
-    static triangle creatTriangle(vertex A, vertex B, vertex C)
-    {
+    static triangle creatTriangle(vertex A, vertex B, vertex C) {
         triangle t;
 
         t.a = A;
@@ -52,8 +47,7 @@ class triangle
     }
 };
 
-int main(void)
-{
+int main(void) {
     vertex a, b, c;
     triangle t;
 
@@ -61,7 +55,7 @@ int main(void)
     b.vertexEnter();
     c.vertexEnter();
 
-    // method call using class name
+    // method call using class_name::static_method
     t = triangle::creatTriangle(a, b, c);
 
     return 0;
