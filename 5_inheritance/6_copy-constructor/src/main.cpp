@@ -2,8 +2,8 @@
 
 // when derived class has pointer attributes
 // including attributes inherited from base classes and component classes
-// do not use default assignment operator
-// must use built assignment operator
+// do not use default copy constructor
+// must use built copy constructor
 
 // BASE CLASS
 class point {
@@ -30,7 +30,16 @@ class point {
         delete this->pointName;
     }
 
-    // first: build up the assignment operator for base class
+    // first: build up the copy constructor for base class
+    point(const point &existObject) {
+        this->x = existObject.x;
+        this->y = existObject.y;
+        this->pointName = new char[22];
+        for (int i = 0; i < 22; i++) {
+            this->pointName[i] = existObject.pointName[i];
+        }
+    }
+
     const point &operator=(const point &source) {
         this->x = source.x;
         this->y = source.y;
@@ -71,16 +80,22 @@ class circle : private point {
         delete this->circleName;
     }
 
-    // last: build up the assignment operator for derived class
+    // last: build up the copy constructor for derived class
+    circle(const circle &existObject) : point(existObject) {
+        this->r = existObject.r;
+        this->circleName = new char[22];
+        for (int i = 0; i < 22; i++) {
+            this->circleName[i] = existObject.circleName[i];
+        }
+    }
+
     const circle &operator=(const circle &source) {
         this->r = source.r;
         for (int i = 0; i <= 21; i++) {
             this->circleName[i] = source.circleName[i];
         }
 
-        // to use assignment operator of base class, need to cast the type follow pattern:
         *((point*)this) = point::operator=(source);
-        // point::operator=(source);
 
         return source;
     }
@@ -97,8 +112,7 @@ int main(void) {
     circle cir1(2.2F, 1U, 2.34F);
     cir1.printfR();
 
-    circle cir2(10.F, 10U, 10.F);
-    cir2 = cir1;
+    circle cir2(cir1);
     cir2.printfR();
 
     return 0;
