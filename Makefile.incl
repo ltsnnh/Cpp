@@ -60,3 +60,8 @@ clean:
 # Clean everything
 clobber: clean
 	-rm -f $(PRJDIR)/$(BINARY)
+
+# Debug build with AddressSanitizer + UndefinedBehaviorSanitizer
+debug: CXXFLAGS += -O0
+debug: LDFLAGS  += -fsanitize=address -fsanitize=undefined
+debug: clobber all
